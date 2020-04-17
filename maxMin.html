@@ -8,8 +8,8 @@
         var inputList = document.getElementById("input-list");
         var inputs = inputList.children;
         console.log(inputs[0].value);
-        var max = inputs[0].value;
-        var min = inputs[0].value;
+        var max = Number(inputs[0].value);
+        var min = Number(inputs[0].value);
         var avg = 0;
         console.log('length...', inputs.length)
         for (var i = 0; i < inputs.length; i++){

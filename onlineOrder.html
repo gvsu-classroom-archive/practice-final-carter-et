@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Online Order</title>
+        <script>
+            async function get(){
+                var id = 2;
+                let response = await fetch('https://www.cis.gvsu.edu/~kurmasz/Orders/' + id);
+                if (response.ok){
+                    let json = await response.json();
+                    console.log(json);
+
+                    var order = document.createElement("div");
+                    order.setAttribute("id", "order");
+                    var title = document.createElement('h1');
+                    title.innerHTML = 'Order ' + id + ':'; 
+                    order.appendChild(title);
+
+                    // You would continue making elements to represent your data
+                    // and then appending them to the var 'order'
+
+                    var body = document.getElementsByTagName('body')[0];
+                    console.log(body);
+                    body.appendChild(order);
+                } else {
+                    console.log("whoopsie, try that url again?")
+                }
+            }
+        </script>
+    </head>
+    <body>
+        Enter your order number: <br>
+        <input id='order-id' type="text"/>
+        <button id='submit' onclick="get()"> Submit </button>
+    </body>
+</html>
