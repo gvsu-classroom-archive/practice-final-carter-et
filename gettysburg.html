@@ -11,11 +11,29 @@
             background-color: rgb(238, 246, 253)
         }
     </style>
+    <script>
+        function decorate() {
+            console.log("Decorating...");
+            var allcaps = document.getElementsByClassName('allcaps');
+            var first = document.getElementsByClassName('upcase');
+            for (var i=0; i < allcaps.length; i++){
+                allcaps[i].innerHTML = allcaps[i].innerHTML.toUpperCase();
+            }
+            for (var i=0; i < first.length; i++){
+                first[i].innerHTML = first[i].innerHTML.charAt(0).toUpperCase() + first[i].innerHTML.slice(1); 
+            }
+
+            
+            console.log("Done decorating.");
+
+        }
+    </script>
+
 </head>
 
 <body>
 
-    <button id='decorate'>Decorate</button>
+    <button id='decorate' onclick="decorate()">Decorate</button>
 
     <p>Four score and <span class="allcaps">seven years ago</span> our <span class="upcase">fathers</span> brought forth
         on this <span class="upcase">continent</span>, <span class="allcaps">a new nation</span>, conceived in Liberty,
