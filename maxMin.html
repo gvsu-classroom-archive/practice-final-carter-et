@@ -2,6 +2,45 @@
 <html>
 <head>
     <title>Test Data</title>
+
+    <script>
+      function getData(){
+        var inputList = document.getElementById("input-list");
+        var inputs = inputList.children;
+        console.log(inputs[0].value);
+        var max = inputs[0].value;
+        var min = inputs[0].value;
+        var avg = 0;
+        console.log('length...', inputs.length)
+        for (var i = 0; i < inputs.length; i++){
+          var current = Number(inputs[i].value);
+          avg += current;
+          if(max < current){
+            max = current;
+          }
+          if(min > current){
+            min = current;
+          }
+        }
+        avg = avg / inputs.length;
+        console.log(max);
+        console.log(min);
+        console.log(avg);
+
+        document.getElementById('max').innerHTML = '' + max;
+        document.getElementById('min').innerHTML = '' + min;
+        document.getElementById('average').innerHTML = '' + avg; 
+
+      }
+      function more(){
+        var inputList = document.getElementById("input-list");
+        for (var i = 0; i < 10; i++){
+          var input = document.createElement("input");
+          input.type='text';
+          inputList.appendChild(input);
+        }
+      }
+    </script>
 </head>
 <body>
 
@@ -19,8 +58,8 @@
    <input type='text'>
    <input type='text'>
   </div> 
-<button id='submit'>Submit</button>
-<button id='more'>More</button>
+<button id='submit' onclick="getData()">Submit</button>
+<button id='more' onclick="more()">More</button>
 
 <p>Maximum: <span id="max"/></p>
 
